@@ -5,21 +5,22 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
     const [isDarkMode, setIsDarkMode] = useState(true);
-    const [themeicon, setThemeicon] = useState('moon');
+    const [isTheme, setIsTheme] = useState('dark');
 
-    const toggleTheme = () => {
-        setIsDarkMode(!isDarkMode);
-        if (isDarkMode) {
-            setThemeicon('moon')
-        }else{
-            setThemeicon('sun')
+    const toggleTheme = (theme) => {
+        if(theme == 'light'){
+            setIsDarkMode(false)
+            setIsTheme('light')
+        } else if(theme == 'dark'){
+            setIsDarkMode(true)
+            setIsTheme('dark')
         }
     };
 
     const theme = isDarkMode ? darkTheme : lightTheme;
 
     return (
-        <ThemeContext.Provider value={{ isDarkMode, toggleTheme, themeicon, theme }}>
+        <ThemeContext.Provider value={{ isDarkMode,isTheme, toggleTheme, theme }}>
             {children}
         </ThemeContext.Provider>
     );

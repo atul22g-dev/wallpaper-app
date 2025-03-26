@@ -1,10 +1,11 @@
 export const lightTheme = {
-    primaryColor: "#f0f6fc", //white
-    secandaryColor: '#0d1117', // Black
-    inactiveColor: 'red'
+    primaryColor: "#fff", //white
+    secandaryColor: '#1c1c1c', // Black
+    thirdColor: '@676767' // grey 
 };
 
 export const darkTheme = {
-    primaryColor: "#0d1117", // Black
-    secandaryColor: '#f0f6fc', //white
+    primaryColor: "#1c1c1c", // Black
+    secandaryColor: '#fff', //white
+    thirdColor: '#676767' // grey
 };

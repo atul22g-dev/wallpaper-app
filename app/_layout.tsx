@@ -4,9 +4,9 @@ import { ThemeProvider } from '@/context/Theme';
 export default function Layout() {
     return (
         <ThemeProvider>
-        <Stack>
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        </Stack>
+            <Stack>
+                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            </Stack>
         </ThemeProvider>
     );
 }

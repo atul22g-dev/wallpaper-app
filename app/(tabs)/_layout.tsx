@@ -10,7 +10,8 @@ export default function TabLayout() {
             screenOptions={{
                 tabBarActiveTintColor: theme.theme.secandaryColor, // Tab Text Color & Active Color
                 tabBarStyle: {
-                    backgroundColor: theme.theme.primaryColor // Tab Backgroung color
+                    backgroundColor: theme.theme.primaryColor, // Tab Backgroung color
+                    height: 55, // Tab Height 
                 },
             }}
         >
@@ -19,8 +20,8 @@ export default function TabLayout() {
                 options={{
                     headerShown: false,
                     title: 'For You',
-                    tabBarIcon: () => (
-                        <FontAwesome size={23} name="home" color={theme.theme.secandaryColor} />
+                    tabBarIcon: ({ focused }) => (
+                        <FontAwesome size={20} name="home" color={focused ? theme.theme.secandaryColor : theme.theme.thirdColor} />
                     ),
                 }}
             />
@@ -29,8 +30,8 @@ export default function TabLayout() {
                 options={{
                     title: 'Account',
                     headerShown: false,
-                    tabBarIcon: () => (
-                        <FontAwesome size={23} name="user" color={theme.theme.secandaryColor} />
+                    tabBarIcon: ({ focused }) => (
+                        <FontAwesome size={20} name="user" color={focused ? theme.theme.secandaryColor : theme.theme.thirdColor} />
                     ),
                 }}
             />
