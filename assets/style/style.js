@@ -10,16 +10,17 @@ export const useStyles = () => {
         // ForYou Tab
         fYTab:{
             padding: 10,
-            paddingTop: 25,
+            paddingBottom: 55,
             height: scale(700),
             backgroundColor: theme.theme.primaryColor,
         },
         ImgContainer:{
-            position: 'relative'
+            position: 'relative',
+            marginBottom: 15
         },
         Images:{
             width: width/2 - 20,
-            height: 150, 
+            height: 260, 
             margin: 5,
             borderRadius: 10
         },
@@ -31,7 +32,7 @@ export const useStyles = () => {
             bottom: 0,
             display: "flex",
             flexDirection: "row",
-            paddingHorizontal: 15,
+            paddingLeft: 15,
             alignItems: "center",
             justifyContent: "space-between",
             borderBottomLeftRadius: 10,
@@ -40,6 +41,13 @@ export const useStyles = () => {
         ImgText:{
             color: "white",
             fontWeight: "800",
+        },
+        ImgHeartCon:{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: 40,
+            width: 30
         },
         // Account Tab
         AccContainer: {

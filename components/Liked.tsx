@@ -6,18 +6,16 @@ import { AppDispatch, RootState } from '@/redux/store';
 import { useState } from 'react';
 import { liked } from '@/redux/slices/wallpaperSlice';
 
-const Suggested = () => {
+const Liked = () => {
     const dispatch = useDispatch<AppDispatch>();
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const styles = useStyles();
-    const { wallpaper, loading, error, likedWallpapers } = useSelector((state: RootState) => state.Wallpaper);
+    const { likedWallpapers } = useSelector((state: RootState) => state.Wallpaper);
 
-    if (loading) return <Text style={{ textAlign: 'center', marginTop: 20 }}>Loading...</Text>;
-    if (error) return <Text style={{ textAlign: 'center', marginTop: 20, color: 'red' }}>Error loading data</Text>;
     return (
         <View style={styles.fYTab}>
             <FlatList
-                data={wallpaper}
+                data={likedWallpapers}
                 numColumns={2}
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => {
@@ -39,4 +37,4 @@ const Suggested = () => {
     );
 };
 
-export default Suggested;
+export default Liked;
