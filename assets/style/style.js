@@ -49,6 +49,16 @@ export const useStyles = () => {
             height: 40,
             width: 30
         },
+        // liked Tab
+        likedCon:{
+            paddingVertical: 40,
+            display: "flex",
+            alignItems: "center",
+            gap: 20
+        },
+        likedText:{
+            color: theme.theme.secandaryColor
+        },
         // Account Tab
         AccContainer: {
             padding: 10,
