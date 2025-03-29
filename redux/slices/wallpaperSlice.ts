@@ -55,7 +55,9 @@ const WallpaperSlice = createSlice({
             // Save updated liked wallpapers to AsyncStorage
             AsyncStorage.setItem('likedWallpapers', JSON.stringify(state.likedWallpapers));
         },
-        openBottomSheet: (state, action: PayloadAction<Wallpaper>) => {
+        openBottomSheet: (state, action) => {
+            console.log(action.payload);
+            
             state.selectedWallpapers = action.payload;
         }
     },

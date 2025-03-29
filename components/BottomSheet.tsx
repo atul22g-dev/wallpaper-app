@@ -1,14 +1,23 @@
 import React, { useCallback, useRef } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { Text } from 'react-native';
+import { useStyles } from '@/assets/style/style';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
+import { useSelector, useDispatch } from 'react-redux';
+import { AppDispatch } from '@/redux/store';
+import { openBottomSheet } from '@/redux/slices/wallpaperSlice';
 
 export const DownloadPicture = () => {
+    const dispatch = useDispatch<AppDispatch>();
+    const styles = useStyles();
     // ref
     const bottomSheetRef = useRef<BottomSheet>(null);
 
     // callbacks
     const handleSheetChanges = useCallback((index: number) => {
         console.log('handleSheetChanges', index);
+        if (index === -1){
+            dispatch(openBottomSheet(null))
+        }
     }, []);
 
     // renders
@@ -28,37 +37,3 @@ export const DownloadPicture = () => {
         </BottomSheet>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    contentContainer: {
-        flex: 1,
-    },
-    image: {
-        height: "70%",
-        // borderRadius: 15,
-    },
-    topbar: {
-        position: "absolute",
-        padding: 10,
-        display: "flex",
-        justifyContent: "space-between",
-        flexDirection: "row",
-        width: "100%"
-    },
-    topbarInner: {
-        display: "flex",
-        flexDirection: "row",
-    },
-    textContainer: {
-        width: "100%"
-    },
-    text: {
-        paddingTop: 20,
-        textAlign: "center",
-        fontSize: 30,
-        fontWeight: "600"
-    }
-});

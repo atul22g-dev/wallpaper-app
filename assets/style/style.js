@@ -59,6 +59,10 @@ export const useStyles = () => {
         likedText:{
             color: theme.theme.secandaryColor
         },
+        // Bottom Sheets
+        contentContainer:{
+            flex: 1,
+        },
         // Account Tab
         AccContainer: {
             padding: 10,
