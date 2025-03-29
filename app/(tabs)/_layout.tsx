@@ -1,11 +1,17 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
 import { useTheme } from '@/context/Theme';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { DownloadPicture } from '@/components/BottomSheet';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/redux/store';
 
 export default function TabLayout() {
     const theme = useTheme();
+    const { selectedWallpapers } = useSelector((state: RootState) => state.Wallpaper);
 
     return (
+        <GestureHandlerRootView>
         <Tabs
             screenOptions={{
                 tabBarActiveTintColor: theme.theme.secandaryColor, // Tab Text Color & Active Color
@@ -36,5 +42,7 @@ export default function TabLayout() {
                 }}
             />
         </Tabs>
+        {selectedWallpapers && <DownloadPicture />}
+        </GestureHandlerRootView>
     );
 }

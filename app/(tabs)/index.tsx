@@ -18,17 +18,17 @@ export default function Tab() {
     }, [dispatch]);
 
     return (
-        <Tab.Navigator
-            screenOptions={{
-                tabBarIndicatorStyle: { backgroundColor: theme.theme.secandaryColor },
-                tabBarActiveTintColor: theme.theme.secandaryColor,
-                tabBarStyle: {
-                    backgroundColor: theme.theme.primaryColor,
-                    height: 55,
-                },
-            }}>
-            <Tab.Screen name="Suggested" component={Suggested} />
-            <Tab.Screen name="Liked" component={Liked} />
-        </Tab.Navigator>
+            <Tab.Navigator
+                screenOptions={{
+                    tabBarIndicatorStyle: { backgroundColor: theme.theme.secandaryColor },
+                    tabBarActiveTintColor: theme.theme.secandaryColor,
+                    tabBarStyle: {
+                        backgroundColor: theme.theme.primaryColor,
+                        height: 55,
+                    },
+                }}>
+                <Tab.Screen name="Suggested" component={Suggested} />
+                <Tab.Screen name="Liked" component={Liked} />
+            </Tab.Navigator>
     );
 }

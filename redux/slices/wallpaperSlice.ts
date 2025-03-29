@@ -13,6 +13,7 @@ interface Wallpaper {
 interface WallpaperState {
     wallpaper: Wallpaper[];
     likedWallpapers: Wallpaper[];
+    selectedWallpapers: Wallpaper | null;
     loading: boolean;
     error: string | null;
 }
@@ -20,6 +21,7 @@ interface WallpaperState {
 const initialState: WallpaperState = {
     wallpaper: [],
     likedWallpapers: [],
+    selectedWallpapers: null,
     loading: false,
     error: null,
 };
@@ -53,6 +55,9 @@ const WallpaperSlice = createSlice({
             // Save updated liked wallpapers to AsyncStorage
             AsyncStorage.setItem('likedWallpapers', JSON.stringify(state.likedWallpapers));
         },
+        openBottomSheet: (state, action: PayloadAction<Wallpaper>) => {
+            state.selectedWallpapers = action.payload;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -73,5 +78,5 @@ const WallpaperSlice = createSlice({
     },
 });
 
-export const { liked } = WallpaperSlice.actions;
+export const { liked, openBottomSheet } = WallpaperSlice.actions;
 export default WallpaperSlice.reducer;
