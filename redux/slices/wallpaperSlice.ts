@@ -43,7 +43,7 @@ const WallpaperSlice = createSlice({
     initialState,
     reducers: {
         liked: (state, action) => {
-            console.log(action.payload);
+            // console.log(action.payload);
             const wallpaper = action.payload;
             const isAlreadyLiked = state.likedWallpapers.some(item => item.id === wallpaper.id);
 
