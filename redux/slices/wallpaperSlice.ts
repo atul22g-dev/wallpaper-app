@@ -42,7 +42,8 @@ const WallpaperSlice = createSlice({
     name: 'Wallpaper',
     initialState,
     reducers: {
-        liked: (state, action: PayloadAction<Wallpaper>) => {
+        liked: (state, action) => {
+            console.log(action.payload);
             const wallpaper = action.payload;
             const isAlreadyLiked = state.likedWallpapers.some(item => item.id === wallpaper.id);
 
@@ -56,8 +57,6 @@ const WallpaperSlice = createSlice({
             AsyncStorage.setItem('likedWallpapers', JSON.stringify(state.likedWallpapers));
         },
         openBottomSheet: (state, action) => {
-            console.log(action.payload);
-            
             state.selectedWallpapers = action.payload;
         }
     },
